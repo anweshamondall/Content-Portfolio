@@ -1,6 +1,6 @@
 /* ============================================================
    ANWESHA MONDAL — PORTFOLIO 2026
-   Scroll animations, navbar, counter, timeline, process
+   Scroll animations, navbar, counter, timeline
    ============================================================ */
 
 (function () {
@@ -67,8 +67,7 @@
       // Map data-section to actual section IDs
       const matchesSection =
         sectionId === activeId ||
-        (sectionId === 'work' && (activeId === 'work' || activeId === 'work-evolvx')) ||
-        (sectionId === 'intro' && (activeId === 'intro' || activeId === 'compass'));
+        (sectionId === 'proof' && (activeId === 'proof-reset' || activeId === 'proof-evolvx'));
       a.classList.toggle('active', matchesSection);
     });
   }
@@ -127,27 +126,6 @@
       if (el.classList.contains('in-view')) visible++;
     });
     timelineLineFill.style.height = `${(visible / total) * 100}%`;
-  }
-
-  /* ---- PROCESS STEPS ANIMATION ---- */
-  const processSteps = document.querySelectorAll('.process-step');
-
-  if (!prefersReducedMotion) {
-    const processObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-            processObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-
-    processSteps.forEach(el => processObserver.observe(el));
-  } else {
-    processSteps.forEach(el => el.classList.add('in-view'));
   }
 
   /* ---- COUNTER ANIMATION ---- */
