@@ -67,7 +67,8 @@
       // Map data-section to actual section IDs
       const matchesSection =
         sectionId === activeId ||
-        (sectionId === 'proof' && (activeId === 'proof-reset' || activeId === 'proof-evolvx'));
+        (sectionId === 'work' && (activeId === 'work' || activeId === 'work-evolvx')) ||
+        (sectionId === 'intro' && (activeId === 'intro' || activeId === 'compass'));
       a.classList.toggle('active', matchesSection);
     });
   }
